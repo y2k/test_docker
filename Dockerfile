@@ -1,12 +1,9 @@
 FROM alpine:latest as base1
-ARG FOO
-RUN echo "1.1"
-RUN echo ${FOO}
-RUN echo "1.2"
+RUN echo FOO=$FOO
+RUN echo SOURCE_BRANCH=$SOURCE_BRANCH
 
 FROM alpine:latest as base2
-RUN echo "2.1"
-RUN echo ${FOO}
-RUN echo "2.2"
+ARG FOO
+RUN echo FOO=$FOO
 
-CMD echo ${FOO}
+CMD echo $FOO
